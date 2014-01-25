@@ -1,0 +1,19 @@
+<phpunit bootstrap="bootstrap.php" colors="true">
+
+    <testsuite name="My Test Suite">
+        <directory>ContentChecker/</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src/</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="log/" charset="utf8"/>
+    </logging>
+
+
+</phpunit>
+
