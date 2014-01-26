@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version 0.1
+ * @version 0.2
  * @author po_taka <angel.koilov@gmail.com>
  */
 class RegExpDictionaryTest extends PHPUnit_Framework_TestCase
@@ -22,6 +22,12 @@ class RegExpDictionaryTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($checker->isSafe('this text is baaaaad'));
         
         $this->assertEquals(array($dictionary), $checker->getDictionaries());
+        
+        $checker->setPrefix('[^a-z]');
+        $checker->setSuffix('[^a-z]');
+        
+        $this->assertTrue($checker->isSafe('thisBadTextIsSave'));
+        $this->assertFalse($checker->isSafe('this Bad TextIsNotSave'));
     }
 
 }
