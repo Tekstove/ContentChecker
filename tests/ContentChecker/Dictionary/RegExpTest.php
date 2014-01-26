@@ -3,6 +3,7 @@
 /**
  * Description of RegExpTest
  *
+ * @version 0.1.1
  * @author po_taka <angel.koilov@gmail.com>
  */
 class RegExpTest extends PHPUnit_Framework_TestCase
@@ -19,6 +20,15 @@ class RegExpTest extends PHPUnit_Framework_TestCase
         $dictionary->addWord('added');
 
         $this->assertEquals($data, $dictionary->getWords());
+        
+        $dictionary->addWords(['aaa', 'bbb']);
+        
+        $data[] = 'aaa';
+        $data[] = 'bbb';
+        
+        $this->assertEquals($data, $dictionary->getWords());
+        
+        
     }
 
 }

@@ -26,6 +26,16 @@ class RegExpDictionary implements Dictionary
     public function addWord($word)
     {
         $this->words[] = (string) $word;
+        return $this;
+    }
+
+    public function addWords($data)
+    {
+        foreach ($data as $word) {
+            $this->addWord($word);
+        }
+        
+        return $this;
     }
 
 }

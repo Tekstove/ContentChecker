@@ -10,4 +10,6 @@ interface Dictionary
 {
 
     public function addWord($word);
+
+    public function addWords($data);
 }
