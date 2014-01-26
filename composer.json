@@ -1,5 +1,5 @@
 {
-    "name": "tekstove/contentChecker",
+    "name": "tekstove/content-checker",
     "description": "content checker for 'bad words'",
     "require": {
         "php": ">=5.4.0"
