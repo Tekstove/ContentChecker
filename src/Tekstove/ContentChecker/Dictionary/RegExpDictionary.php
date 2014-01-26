@@ -23,18 +23,6 @@ class RegExpDictionary implements Dictionary
         return $this->words;
     }
 
-    public function isSafe($data)
-    {
-        foreach ($this->words as $word) {
-            $word = str_replace('/', '\\/', $word);
-            if (preg_match('/' . $word . '/', $data)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public function addWord($word)
     {
         $this->words[] = (string) $word;

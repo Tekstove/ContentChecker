@@ -9,7 +9,5 @@ namespace Tekstove\ContentChecker\Dictionary;
 interface Dictionary
 {
 
-    public function isSafe($data);
-
     public function addWord($word);
 }

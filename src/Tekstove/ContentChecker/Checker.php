@@ -9,37 +9,22 @@ namespace Tekstove\ContentChecker;
 class Checker
 {
 
-    protected $dictionaries = [];
+    protected $checkers = [];
 
-    function __construct()
+    public function isSafe($data)
     {
-        
-    }
-
-    /**
-     * 
-     * @return Dictionary\Dictionary[]
-     */
-    public function getDictionaries()
-    {
-        return $this->dictionaries;
-    }
-
-    public function addDictionary(Dictionary\Dictionary $d)
-    {
-        $this->dictionaries[] = $d;
-    }
-
-    public function check($data)
-    {
-        $data = (string) $data;
-        foreach ($this->getDictionaries() as $dictionary) {
-            if (false === $dictionary->isSave($data)) {
+        foreach ($this->checkers as $checker) {
+            if (false === $checker->isSafe($data)) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    public function addChecker(Checker\Checker $checker)
+    {
+        $this->checkers[] = $checker;
     }
 
 }
