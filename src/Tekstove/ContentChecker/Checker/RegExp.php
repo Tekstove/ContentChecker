@@ -15,7 +15,7 @@ class RegExp extends AbstractChecker implements Checker
 
             foreach ($dictionary->getWords() as $word) {
                 $word = str_replace('/', '\\/', $word);
-                if (preg_match('/' . $word . '/', $data)) {
+                if (preg_match('/' . $word . '/i', $data)) {
                     return false;
                 }
             }
