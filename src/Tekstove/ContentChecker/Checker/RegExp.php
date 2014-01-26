@@ -52,7 +52,7 @@ class RegExp extends AbstractChecker implements Checker
 
             foreach ($dictionary->getWords() as $word) {
                 $word = str_replace('/', '\\/', $word);
-                if (preg_match('/' . $this->getPrefix() . $word . $this->getSuffix() . '/i', $data)) {
+                if (preg_match('/' . $this->getPrefix() . $word . $this->getSuffix() . '/iu', $data)) {
                     return false;
                 }
             }
