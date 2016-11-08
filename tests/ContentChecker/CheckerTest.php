@@ -7,13 +7,12 @@
  */
 class CheckerTest extends PHPUnit_Framework_TestCase
 {
-
     public function testCheck()
     {
-        $data = ['good', 'ba+d', 'evil'];
-        $dictionary = new \Tekstove\ContentChecker\Dictionary\RegExpDictionary($data);
+        $data = ['good', 'bad', 'evil'];
+        $dictionary = new \Tekstove\ContentChecker\Dictionary\SimpleDictionary($data);
 
-        $regExpChecker = new \Tekstove\ContentChecker\Checker\RegExp();
+        $regExpChecker = new \Tekstove\ContentChecker\Checker\RegExpChecker();
 
         $regExpChecker->addDictionary($dictionary);
 
@@ -24,5 +23,4 @@ class CheckerTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($checker->isSafe('this text is bad'));
         $this->assertFalse($checker->isSafe('this text is baaaaad'));
     }
-
 }

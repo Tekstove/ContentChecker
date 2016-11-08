@@ -6,7 +6,7 @@ namespace Tekstove\ContentChecker\Checker;
  *
  * @author po_taka <angel.koilov@gmail.com>
  */
-class RegExp extends AbstractChecker implements Checker
+class RegExpChecker extends AbstractChecker implements CheckerInterface
 {
 
     protected $prefix = '';
@@ -49,10 +49,10 @@ class RegExp extends AbstractChecker implements Checker
     public function isSafe($data)
     {
         foreach ($this->dictionaries as $dictionary) {
-
             foreach ($dictionary->getWords() as $word) {
-                $word = str_replace('/', '\\/', $word);
-                if (preg_match('/' . $this->getPrefix() . $word . $this->getSuffix() . '/iu', $data)) {
+                $wordEscaped = preg_quote($word, '/');
+                $wordSmart = preg_replace('/(\p{L})/u', '$1+', $wordEscaped);
+                if (preg_match('/' . $this->getPrefix() . $wordSmart . $this->getSuffix() . '/iu', $data)) {
                     return false;
                 }
             }
@@ -60,5 +60,4 @@ class RegExp extends AbstractChecker implements Checker
 
         return true;
     }
-
 }

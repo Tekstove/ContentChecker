@@ -1,18 +1,21 @@
 <?php
 
+use Tekstove\ContentChecker\Dictionary\SimpleDictionary;
+use Tekstove\ContentChecker\Checker\RegExpChecker;
+
 /**
- * @version 0.2
  * @author po_taka <angel.koilov@gmail.com>
- */
-class RegExpDictionaryTest extends PHPUnit_Framework_TestCase
+ **/
+
+class RegExpCheckerTest extends PHPUnit_Framework_TestCase
 {
 
     public function testCheck()
     {
-        $data = ['good', 'ba+d', 'evil'];
-        $dictionary = new \Tekstove\ContentChecker\Dictionary\RegExpDictionary($data);
+        $data = ['good', 'bad', 'evil', 'лошо'];
+        $dictionary = new SimpleDictionary($data);
 
-        $checker = new \Tekstove\ContentChecker\Checker\RegExp();
+        $checker = new RegExpChecker();
 
         $checker->addDictionary($dictionary);
 
@@ -21,7 +24,7 @@ class RegExpDictionaryTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($checker->isSafe('this text is bad'));
         $this->assertFalse($checker->isSafe('this text is baaaaad'));
         
-        $this->assertEquals(array($dictionary), $checker->getDictionaries());
+        $this->assertFalse($checker->isSafe('мноо ЛоШШо'));
         
         $checker->setPrefix('[^a-z]');
         $checker->setSuffix('[^a-z]');
@@ -29,5 +32,4 @@ class RegExpDictionaryTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($checker->isSafe('thisBadTextIsSave'));
         $this->assertFalse($checker->isSafe('this Bad TextIsNotSave'));
     }
-
 }

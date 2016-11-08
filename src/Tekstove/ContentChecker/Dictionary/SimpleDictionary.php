@@ -6,9 +6,8 @@ namespace Tekstove\ContentChecker\Dictionary;
  * @version 0.1
  * @author po_taka <angel.koilov@gmail.com>
  */
-class RegExpDictionary implements Dictionary
+class SimpleDictionary implements DictionaryInterface
 {
-
     protected $words = [];
 
     public function __construct(array $data)
@@ -37,5 +36,4 @@ class RegExpDictionary implements Dictionary
         
         return $this;
     }
-
 }

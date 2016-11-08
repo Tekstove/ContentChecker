@@ -2,18 +2,18 @@
 
 namespace Tekstove\ContentChecker\Checker;
 
-use \Tekstove\ContentChecker\Dictionary\Dictionary;
+use \Tekstove\ContentChecker\Dictionary\DictionaryInterface;
 
 /**
  *
  * @author po_taka <angel.koilov@gmail.com>
  */
-abstract class AbstractChecker implements Checker
+abstract class AbstractChecker implements CheckerInterface
 {
 
     protected $dictionaries = [];
 
-    public function addDictionary(Dictionary $dictionary)
+    public function addDictionary(DictionaryInterface $dictionary)
     {
         $this->dictionaries[] = $dictionary;
     }
@@ -22,5 +22,4 @@ abstract class AbstractChecker implements Checker
     {
         return $this->dictionaries;
     }
-
 }

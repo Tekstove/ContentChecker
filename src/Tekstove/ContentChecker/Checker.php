@@ -22,9 +22,8 @@ class Checker
         return true;
     }
 
-    public function addChecker(Checker\Checker $checker)
+    public function addChecker(Checker\CheckerInterface $checker)
     {
         $this->checkers[] = $checker;
     }
-
 }

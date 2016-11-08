@@ -3,10 +3,9 @@
 namespace Tekstove\ContentChecker\Dictionary;
 
 /**
- * @version 0.1
  * @author po_taka <angel.koilov@gmail.com>
  */
-interface Dictionary
+interface DictionaryInterface
 {
 
     public function addWord($word);
