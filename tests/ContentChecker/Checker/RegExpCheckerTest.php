@@ -26,10 +26,7 @@ class RegExpCheckerTest extends PHPUnit_Framework_TestCase
         
         $this->assertFalse($checker->isSafe('мноо ЛоШШо'));
         
-        $checker->setPrefix('[^a-z]');
-        $checker->setSuffix('[^a-z]');
-        
-        $this->assertTrue($checker->isSafe('thisBadTextIsSave'));
+        $this->assertFalse($checker->isSafe('thisBadTextIsSave'));
         $this->assertFalse($checker->isSafe('this Bad TextIsNotSave'));
     }
 }
