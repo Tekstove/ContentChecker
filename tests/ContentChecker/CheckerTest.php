@@ -1,11 +1,13 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Description of CheckerTest
  *
  * @author po_taka <angel.koilov@gmail.com>
  */
-class CheckerTest extends PHPUnit_Framework_TestCase
+class CheckerTest extends TestCase
 {
     public function testCheck()
     {

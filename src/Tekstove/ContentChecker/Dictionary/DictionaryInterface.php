@@ -11,4 +11,6 @@ interface DictionaryInterface
     public function addWord($word);
 
     public function addWords($data);
+
+    public function getWords();
 }

@@ -2,10 +2,10 @@
     "name": "tekstove/content-checker",
     "description": "content checker for 'bad words'",
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "5.*"
+        "phpunit/phpunit": "6.1.*"
     },
     "autoload": {
         "psr-0": {
