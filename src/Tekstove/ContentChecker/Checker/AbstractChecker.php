@@ -10,7 +10,9 @@ use \Tekstove\ContentChecker\Dictionary\DictionaryInterface;
  */
 abstract class AbstractChecker implements CheckerInterface
 {
-
+    /**
+     * @var DictionaryInterface
+     */
     protected $dictionaries = [];
 
     public function addDictionary(DictionaryInterface $dictionary)

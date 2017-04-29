@@ -1,10 +1,12 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
+
 /**
  *
  * @author po_taka <angel.koilov@gmail.com>
  */
-class SimpleDictionaryTest extends PHPUnit_Framework_TestCase
+class SimpleDictionaryTest extends TestCase
 {
     public function testAddWord()
     {

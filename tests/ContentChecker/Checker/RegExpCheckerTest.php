@@ -1,5 +1,6 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Tekstove\ContentChecker\Dictionary\SimpleDictionary;
 use Tekstove\ContentChecker\Checker\RegExpChecker;
 
@@ -7,7 +8,7 @@ use Tekstove\ContentChecker\Checker\RegExpChecker;
  * @author po_taka <angel.koilov@gmail.com>
  **/
 
-class RegExpCheckerTest extends PHPUnit_Framework_TestCase
+class RegExpCheckerTest extends TestCase
 {
 
     public function testCheck()
